@@ -44,12 +44,11 @@ export function GradeList() {
           ))}
         </div>
 
-        <div>
-				  <input type="text" placeholder="Titre" onInput={handleTitleInput}/>
-				  <input type="number" placeholder="10" onInput={handleValueInput} />
-				  <textarea type="number" placeholder="Entrez un commentaire..." onInput={handleCommentInput}></textarea>
-					
-        </div>
+        <form>
+				  <input type="text" placeholder="Titre" value={title} onInput={handleTitleInput}/>
+				  <input type="number" placeholder="10" value={value} onInput={handleValueInput} />
+				  <textarea type="number" placeholder="Entrez un commentaire..." value={comment} onInput={handleCommentInput}></textarea>
+        </form>
 
         <button onClick={() => handleAddGrade()}>Add</button>
       </div>

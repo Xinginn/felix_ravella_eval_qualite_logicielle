@@ -9,6 +9,11 @@ export const useGradeStore = create((set) => ({
       gradeCount: state.gradeCount +1,
     })
   ),
+  setGrades: (value) => set(
+    (state) => ({
+      grades: value
+    })
+  ),
   selectedGradeId: null,
   selectGrade: (id) => set(
     (state) => ({

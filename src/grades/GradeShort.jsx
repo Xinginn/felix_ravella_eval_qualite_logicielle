@@ -2,7 +2,6 @@ import "../assets/styles.css"
 import { useGradeStore } from "../lib/store/grades";
 
 export function GradeShort({gradeData}) {
-  const selectedGradeId = useGradeStore(state => state.selectedGradeId);
   const selectGrade = useGradeStore(state => state.selectGrade)
 
 
@@ -21,10 +20,6 @@ export function GradeShort({gradeData}) {
     } else {
       return "green";
     }
-  }
-
-  function handelSelect() {
-
   }
 
   return (
