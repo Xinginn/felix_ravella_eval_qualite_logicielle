@@ -36,7 +36,7 @@ export function GradeList() {
 
   return (
     <>
-      <div>
+      <div id="#creation-form">
         <h2>Liste des notes</h2>
         <div  class="block">
           {grades.map((item, index) => (
@@ -45,10 +45,10 @@ export function GradeList() {
         </div>
 
         <form class="block">
-				  <input type="text" placeholder="Titre" value={title} onInput={handleTitleInput}/>
-				  <input type="number" placeholder="10" value={value} onInput={handleValueInput} />
-				  <textarea type="number" placeholder="Entrez un commentaire..." value={comment} onInput={handleCommentInput}></textarea>
-          <button type="button" onClick={() => handleAddGrade()}>Add</button>
+				  <input data-testid="create-title" type="text" placeholder="Titre" value={title} onInput={handleTitleInput}/>
+				  <input data-testid="create-value" type="number" placeholder="10" value={value} onInput={handleValueInput} />
+				  <textarea data-testid="create-comment" type="number" placeholder="Entrez un commentaire..." value={comment} onInput={handleCommentInput}></textarea>
+          <button data-testid="create-button"type="button" onClick={() => handleAddGrade()}>Add</button>
         </form>
 
       </div>

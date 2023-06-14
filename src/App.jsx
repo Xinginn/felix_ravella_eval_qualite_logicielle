@@ -14,6 +14,7 @@ function App() {
 
   return (
     <>
+      <h1>Grade app</h1>
       <GradeList ></GradeList>
 
       <Grade gradeData={selectedGrade}></Grade>

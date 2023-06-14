@@ -19,7 +19,6 @@ export function Grade({ gradeData }) {
   const [comment, setComment] = useState(gradeData.comment);
 
 
-
   function handleUpdate() {
     console.log("handle")
     let newList = [...grades]
@@ -53,13 +52,15 @@ export function Grade({ gradeData }) {
 
   return (
     <>
-      <h2>Editer une note</h2>
-      <form class="block">
-        <input type="text" placeholder="Titre" value={title} onInput={handleTitleInput} />
-        <input type="number" placeholder="10" value={value} onInput={handleValueInput} />
-        <textarea type="number" placeholder="Entrez un commentaire..." value={comment}  onInput={handleCommentInput}></textarea>
-        <button type="button" onClick={() => handleUpdate()}>Update</button>
-      </form>
+      <div >
+        <h2>Editer une note</h2>
+        <form data-testid="grade-edit" class="block">
+          <input type="text" placeholder="Titre" value={title} onInput={handleTitleInput} />
+          <input type="number" placeholder="10" value={value} onInput={handleValueInput} />
+          <textarea type="number" placeholder="Entrez un commentaire..." value={comment}  onInput={handleCommentInput}></textarea>
+          <button type="button" onClick={() => handleUpdate()}>Update</button>
+        </form>
+      </div>
     </>
   )
 }

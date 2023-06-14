@@ -24,10 +24,11 @@ export function GradeShort({gradeData}) {
 
   return (
     <>
-      <div className={`gradeshort ${getGradeClass()}`} onClick={handleSelect}>
-        <b>{gradeData.title}:</b><span >{gradeData.value}</span>
+      <div data-testid={`gradeshort-${gradeData.id}`} className={`gradeshort ${getGradeClass()}`} onClick={handleSelect}>
+        <b>{gradeData.title}:</b>&nbsp;<span >{gradeData.value}</span>
+        <br/>
         <i>"{(gradeData.comment).substring(0, 10)}"</i><br/>
-        {gradeData.date}
+        <span>{gradeData.date}</span>
       </div>
     </>
   )
