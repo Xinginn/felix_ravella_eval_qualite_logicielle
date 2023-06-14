@@ -36,7 +36,6 @@ export function Grade({ gradeData }) {
     }
     setGrades(newList);
     
-    
   }
 
   function handleTitleInput(event) {
@@ -54,14 +53,13 @@ export function Grade({ gradeData }) {
 
   return (
     <>
-      {JSON.stringify(grades)}
-      <form>
+      <h2>Editer une note</h2>
+      <form class="block">
         <input type="text" placeholder="Titre" value={title} onInput={handleTitleInput} />
         <input type="number" placeholder="10" value={value} onInput={handleValueInput} />
         <textarea type="number" placeholder="Entrez un commentaire..." value={comment}  onInput={handleCommentInput}></textarea>
+        <button type="button" onClick={() => handleUpdate()}>Update</button>
       </form>
-      <button onClick={() => handleUpdate()}>Update</button>
-
     </>
   )
 }

@@ -24,7 +24,7 @@ export function GradeShort({gradeData}) {
 
   return (
     <>
-      <div className={getGradeClass()} onClick={handleSelect}>
+      <div className={`gradeshort ${getGradeClass()}`} onClick={handleSelect}>
         <b>{gradeData.title}:</b><span >{gradeData.value}</span>
         <i>"{(gradeData.comment).substring(0, 10)}"</i><br/>
         {gradeData.date}
