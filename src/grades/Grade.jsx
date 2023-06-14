@@ -1,40 +1,20 @@
 import "../assets/styles.css"
 import { useGradeStore } from "../lib/store/grades";
 
-export function Grade({gradeData}) {
+export function Grade() {
+  const grades = useGradeStore(state => state.grades);
   const selectedGradeId = useGradeStore(state => state.selectedGradeId);
-  const selectGrade = useGradeStore(state => state.selectGrade)
 
-
-
-  function handleSelect() {
-    selectGrade(8)
+  if (selectedGradeId != null) {
+    return (
+      <>
+        <div>
+          {grades[selectedGradeId].title}
+        </div>
+      </>
+    )
+  } else {
+    return (<></>)
   }
-
-  function getGradeClass() {
-    if(gradeData.value < 8){
-      return "red";
-    } else if (gradeData.value < 10) {
-      return "orange";
-    } else if (gradeData.value < 13) {
-      return "yellow";
-    } else {
-      return "green";
-    }
-  }
-
-  function handelSelect() {
-
-  }
-
-  return (
-    <>
-      <div className={getGradeClass()} onClick={handleSelect}>
-        <b>{gradeData.title}:</b><span >{gradeData.value}</span>
-        <i>"{(gradeData.comment).substring(0, 10)}"</i><br/>
-        {gradeData.date}
-      </div>
-    </>
-  )
 }
 

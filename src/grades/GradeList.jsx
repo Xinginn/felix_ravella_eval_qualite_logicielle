@@ -1,5 +1,5 @@
 import { useGradeStore } from "../lib/store/grades"
-import { Grade } from "./Grade";
+import { GradeShort } from "./GradeShort";
 import { useState } from 'react'
 
 
@@ -16,6 +16,9 @@ export function GradeList() {
   function handleAddGrade() {
     const newDate = new Date().toLocaleString("fr-FR")
     addGrade({ id: gradeCount, value, title, comment, date: newDate})
+    setTitle('');
+    setValue(0);
+    setComment('');
 	}
 
   function handleTitleInput(event) {
@@ -24,12 +27,10 @@ export function GradeList() {
 
   function handleValueInput(event) {
     setValue(parseInt(event.target.value))
-    
   }
 
   function handleCommentInput(event) {
     setComment(event.target.value)
-    
   }
 
 
@@ -39,7 +40,7 @@ export function GradeList() {
         gradelist
         <div>
           {grades.map((item, index) => (
-            <Grade key={item.id} gradeData={item}></Grade>
+            <GradeShort key={item.id} gradeData={item}></GradeShort>
           ))}
         </div>
 

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import './App.css'
+import { Grade } from './grades/Grade'
 import { GradeList } from './grades/GradeList'
 import { useGradeStore } from './lib/store/grades'
 
@@ -13,7 +14,7 @@ function App() {
     <>
       <GradeList></GradeList>
 
-      {selectedGradeId}
+      <Grade></Grade>
     </>
   )
 }
