@@ -7,6 +7,12 @@ export const useGradeStore = create((set) => ({
     (state) => ({
       grades: [...state.grades,newGrade],
       gradeCount: state.gradeCount +1,
-      })
+    })
   ),
+  selectedGradeId: null,
+  selectGrade: (id) => set(
+    (state) => ({
+      selectedGradeId: id
+    })
+  )
 }));

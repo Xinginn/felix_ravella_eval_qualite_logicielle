@@ -1,6 +1,15 @@
 import "../assets/styles.css"
+import { useGradeStore } from "../lib/store/grades";
 
 export function Grade({gradeData}) {
+  const selectedGradeId = useGradeStore(state => state.selectedGradeId);
+  const selectGrade = useGradeStore(state => state.selectGrade)
+
+
+
+  function handleSelect() {
+    selectGrade(8)
+  }
 
   function getGradeClass() {
     if(gradeData.value < 8){
@@ -14,11 +23,16 @@ export function Grade({gradeData}) {
     }
   }
 
+  function handelSelect() {
+
+  }
+
   return (
     <>
-      <div className={getGradeClass()}>
+      <div className={getGradeClass()} onClick={handleSelect}>
         <b>{gradeData.title}:</b><span >{gradeData.value}</span>
-        <i>"{gradeData.comment}"</i>
+        <i>"{(gradeData.comment).substring(0, 10)}"</i><br/>
+        {gradeData.date}
       </div>
     </>
   )

@@ -14,7 +14,8 @@ export function GradeList() {
   const [comment,setComment] = useState('');
 
   function handleAddGrade() {
-    addGrade({ id: gradeCount, value, title, comment })
+    const newDate = new Date().toLocaleString("fr-FR")
+    addGrade({ id: gradeCount, value, title, comment, date: newDate})
 	}
 
   function handleTitleInput(event) {

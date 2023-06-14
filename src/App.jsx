@@ -1,15 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 import { GradeList } from './grades/GradeList'
+import { useGradeStore } from './lib/store/grades'
 
 function App() {
   const [count, setCount] = useState(0)
 
+  const selectedGradeId = useGradeStore((state) => state.selectedGradeId)
+
   return (
     <>
       <GradeList></GradeList>
+
+      {selectedGradeId}
     </>
   )
 }
