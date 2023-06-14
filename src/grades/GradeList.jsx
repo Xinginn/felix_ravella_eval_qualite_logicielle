@@ -1,5 +1,6 @@
 import { useGradeStore } from "../lib/store/grades"
 import { Grade } from "./Grade";
+import { useState } from 'react'
 
 
 
@@ -7,16 +8,28 @@ export function GradeList() {
   const grades = useGradeStore(state => state.grades);
   const gradeCount = useGradeStore(state => state.gradeCount);
   const addGrade = useGradeStore(state => state.addGrade)
+	
+  const [value,setValue] = useState(0);
+	const [title,setTitle] = useState('');
+  const [comment,setComment] = useState('');
 
   function handleAddGrade() {
-    const newGrade = { id: 0, value: 10, title: "un test", comment: "commentaire inspiré" }
-    addGrade(newGrade)
-  }
-
-	function handleTitleInput() {
-
+    addGrade({ id: gradeCount, value, title, comment })
 	}
 
+  function handleTitleInput(event) {
+    setTitle(event.target.value)
+  }
+
+  function handleValueInput(event) {
+    setValue(parseInt(event.target.value))
+    
+  }
+
+  function handleCommentInput(event) {
+    setComment(event.target.value)
+    
+  }
 
 
   return (
@@ -31,8 +44,8 @@ export function GradeList() {
 
         <div>
 				  <input type="text" placeholder="Titre" onInput={handleTitleInput}/>
-				  <input type="number" placeholder="10" />
-				  <textarea type="number" placeholder="Entrez un commentaire..."></textarea>
+				  <input type="number" placeholder="10" onInput={handleValueInput} />
+				  <textarea type="number" placeholder="Entrez un commentaire..." onInput={handleCommentInput}></textarea>
 					
         </div>
 
